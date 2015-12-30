@@ -1,3 +1,7 @@
+html, body {
+    overflow-x: hidden;
+}
+
 body {
     margin: 0;
     color: white;
@@ -6,6 +10,28 @@ body {
 
 #container {
 
+}
+
+.loading-overlay-p1 {
+    position: absolute;
+
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 50vh;
+
+    z-index: 5;
+}
+
+.loading-overlay-p2 {
+    position: absolute;
+
+    top: 50vh;
+    left: 0px;
+    right: 0px;
+    height: 50vh;
+
+    z-index: 5;
 }
 
 .menu-button {
@@ -65,10 +91,13 @@ body {
     background: linear-gradient(#4A4A4A, #2B2B2B);
 }
 
+.rotate {
+    transform: rotate(-180deg);
+}
+
 .player-one {
     top: 0px;
     left: 0px;
-    transform: rotate(-180deg);
 }
 
 .player-two {
@@ -81,7 +110,7 @@ body {
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
 
     align-items: center;
 }
@@ -125,6 +154,9 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
 }
 
 .player-hp {

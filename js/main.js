@@ -5,6 +5,10 @@ function init() {
 
     set("player-one", get("player-one"));
     set("player-two", get("player-two"));
+
+    if(!exists("rotated")) {
+        set("rotated", "1");
+    }
 }
 
 function reset() {
@@ -36,11 +40,23 @@ function sub(name) {
 }
 
 $(document).ready(function() {
+    init();
+
+    if(get("rotated")) {
+        $(".player-one").addClass("rotate");
+    } else {
+        $(".player-one").removeClass("rotate");
+    }
+
     var menuButton = $(".menu-button a").bigSlide({
         easyClose: true
     });
 
-    init();
+    Origami.fastclick(document.body);
+
+    // done "loading"
+    $(".loading-overlay-p1").fadeOut(1000);
+    $(".loading-overlay-p2").fadeOut(1000);
 
     // set up +/- buttons
     $(".player-one-plus").click(function() {
@@ -64,4 +80,18 @@ $(document).ready(function() {
         reset();
         $(menuButton).click();
     })
+
+    $("#rotate-button").click(function() {
+        $(".loading-overlay-p1").fadeIn(0);
+        $(".player-one").toggleClass("rotate");
+        $(".loading-overlay-p1").fadeOut(1000);
+
+        if(get("rotated")) {
+            set("rotated", "0");
+        } else {
+            set("rotated", "1");
+        }
+
+        $(menuButton).click();
+    });
 });
