@@ -1,0 +1,99 @@
+body {
+    margin: 0;
+    color: white;
+    font-family: Consolas, monaco, monospace;
+}
+
+#container {
+
+}
+
+.menu-button {
+    position: absolute;
+
+    top: 50vh;
+    margin-top: -25px;
+    left: 0px;
+    width: 50px;
+    height: 50px;
+
+    background-color: blue;
+
+    z-index: 20;
+
+    text-align: center;
+}
+
+.menu-button a {
+    text-decoration: none;
+    color: white;
+    font-size: 32px;
+}
+
+.menu-button a:hover {
+    color: white;
+}
+
+.menu-button a:visited {
+    color: white;
+}
+
+.player {
+    width: 100vw;
+    height: 50vh;
+
+    position: absolute;
+}
+
+.player-one {
+    top: 0px;
+    left: 0px;
+
+    background-color: black;
+
+    transform: rotate(-180deg);
+}
+
+.player-two {
+    top: 50vh;
+    left: 0px;
+
+    background-color: green;
+}
+
+#menu {
+    background-color: red;
+}
+
+.panel {
+    position: fixed;
+    left: -30vw;
+    width: 30vw;
+
+    z-index: 99;
+}
+
+.player-container {
+    display: flex;
+
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.player-control {
+
+    font: bold 100px/100px Consolas, monaco, monospace;
+
+
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.player-hp {
+    font-size: 200px;
+}
