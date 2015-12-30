@@ -94,4 +94,50 @@ $(document).ready(function() {
 
         $(menuButton).click();
     });
+
+    $("#dice-button").click(function() {
+        $(".dice-roll").fadeIn(500);
+        setTimeout(function() {
+            var dices = [1, 2, 3, 4, 5, 6];
+            var diceIndex = 0;
+
+            var counter = 0;
+
+            var nextDice = function() {
+                $("#dice" + dices[diceIndex]).fadeOut(50);
+                $("#dice" + dices[(diceIndex + 1) % 6]).fadeIn(50);
+
+                diceIndex = (diceIndex + 1) % 6;
+
+                counter++;
+
+                if(counter >= 20) {
+                    $("#dice" + dices[diceIndex]).fadeOut(50);
+
+                    var rand = rollDice();
+
+                    $("#dice" + rand).fadeIn(50);
+
+                    setTimeout(function() {
+                        $(".dice-roll").fadeOut(500);
+
+                        setTimeout(function() {
+                            $("#dice" + rand).hide();
+                            $("#dice1").show();
+
+                            $(menuButton).click();
+                        }, 550)
+                    }, 3000); // wait for 3s before closing
+                } else {
+                    setTimeout(nextDice, 100);
+                }
+            }
+
+            nextDice();
+        }, 1000);
+    })
 });
+
+function rollDice() {
+    return 1 + Math.floor(Math.random() * 6);
+}

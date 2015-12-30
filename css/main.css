@@ -121,8 +121,55 @@ body {
     transition: color 0.5s ease;
 }
 
+.menu-item svg {
+    width: 100px;
+    height: 100px;
+
+    fill: white;
+
+    transition: fill 0.5s ease;
+}
+
+.menu-item svg:hover {
+    fill: #0099FF;
+}
+
 .menu-item:hover {
     color: #0099FF;
+}
+
+.dice-roll {
+    position: absolute;
+
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+
+    z-index: 999;
+
+    display: none;
+}
+
+.dice-roll .dice {
+    width: 300px;
+    height: 300px;
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    margin-top: -150px;
+    margin-left: -150px;
+
+    fill: #FFF;
+
+    display: none;
+}
+
+#dice1 {
+    display: block;
 }
 
 .panel {
