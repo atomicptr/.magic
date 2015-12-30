@@ -207,7 +207,9 @@ body {
 }
 
 .player-hp {
-    font-size: 200px;
+    font-size: 20vw;
+
+    white-space: nowrap;
 
     -webkit-user-select: none;
     -moz-user-select: none;
